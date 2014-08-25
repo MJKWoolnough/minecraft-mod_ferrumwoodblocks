@@ -32,7 +32,7 @@ public class RoadSlab extends Block {
 		.setResistance(10)
 		.setHardness(1.5F)
 		.setStepSound(Block.soundStoneFootstep)
-		.setTextureName("roadslab")
+		.setTextureName(ModFerrumwoodBlocks.getModId() + ":roadslab")
 		.setCreativeTab(CreativeTabs.tabDecorations)
 		.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
 		if (first) {

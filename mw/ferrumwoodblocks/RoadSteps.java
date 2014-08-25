@@ -18,7 +18,7 @@ public class RoadSteps extends BlockStairs {
 		.setResistance(10)
 		.setHardness(1.5F)
 		.setStepSound(Block.soundStoneFootstep)
-		.setTextureName("roadstep")
+		.setTextureName(ModFerrumwoodBlocks.getModId() + ":roadslab")
 		.setUnlocalizedName("roadStep");
 	}
 	
@@ -33,7 +33,7 @@ public class RoadSteps extends BlockStairs {
 	@Override
 	public void registerIcons(IconRegister par1IconRegister) {
         this.topIcon = par1IconRegister.registerIcon("stone");
-        this.bottomIcon = par1IconRegister.registerIcon("roadslab");
+        this.bottomIcon = par1IconRegister.registerIcon(this.getTextureName());
     }
 	
 	@Override

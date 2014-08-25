@@ -62,6 +62,7 @@ public class MultipartBlock extends Block implements IMultipart {
 		}
 	}
 	
+	@Override
 	public void registerIcons(IconRegister iconRegister) {
 		for (BlockPart[] bs : this.bps) {
 			for (BlockPart b : bs) {
