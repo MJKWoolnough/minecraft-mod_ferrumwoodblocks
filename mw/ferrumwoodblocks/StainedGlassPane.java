@@ -69,8 +69,4 @@ public class StainedGlassPane extends BlockPane {
 		return world.getBlockId(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) == 95 || super.canPaneConnectTo(world, x, y, z, dir);
     }
 
-	public void getConnectedTextures(IBlockAccess world, int x, int y, int z) {
-		
-	}
-
 }

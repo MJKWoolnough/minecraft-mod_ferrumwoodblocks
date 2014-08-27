@@ -17,7 +17,6 @@ public class StainedGlassPaneRenderer implements ISimpleBlockRenderingHandler {
 
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks rb) {
-		((StainedGlassPane) block).getConnectedTextures(world, x, y, z);
 		GL11.glDisable(GL11.GL_CULL_FACE);
 		rb.renderBlockPane((BlockPane) block, x, y, z);
 		GL11.glEnable(GL11.GL_CULL_FACE);
