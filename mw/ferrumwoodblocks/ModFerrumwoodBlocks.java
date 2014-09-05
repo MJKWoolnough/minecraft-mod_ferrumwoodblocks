@@ -2,6 +2,8 @@ package mw.ferrumwoodblocks;
 
 import java.io.File;
 
+import mw.library.BlockManipulator;
+import mw.library.DefaultManipulators;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -15,7 +17,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid="FerrumwoodBlocks", name="FerrumwoodBlocks", version="1.4.0")
+@Mod(modid="FerrumwoodBlocks", name="FerrumwoodBlocks", version="1.5.0", dependencies = "required-after:MWLibrary")
 public class ModFerrumwoodBlocks {
 
 	@EventHandler
@@ -35,13 +37,23 @@ public class ModFerrumwoodBlocks {
     	Config.save();
     	
     	GameRegistry.registerBlock(new RoadSlab(roadBlockYellowId, true), BlockItem.class, "roadSlab1");
+    	BlockManipulator.registerManipulator(roadBlockYellowId, new RoadBlockYellowManipulator());
+    	
     	GameRegistry.registerBlock(new RoadSlab(roadBlockWhiteId, false), BlockItem.class, "roadSlab2");
+    	BlockManipulator.registerManipulator(roadBlockWhiteId, new RoadBlockWhiteManipulator());
+    	
     	GameRegistry.registerBlock(new RoadSteps(roadBlockStepsId), "roadStep");
+    	BlockManipulator.registerManipulator(roadBlockStepsId, BlockManipulator.getManipulator(Block.stairsWoodOak.blockID));
+    	
     	GameRegistry.registerBlock(new FenceBlock(fenceBlockId), BlockItem.class, "fenceBlock");
     	GameRegistry.registerBlock(new WallBlock(wallBlockId), BlockItem.class, "wallBlock");
+    	
     	GameRegistry.registerTileEntity(DoorTileEntity.class, "ferrumwooddoors");
     	GameRegistry.registerBlock(new DoorBlock(doorId), DoorItem.class, "doorBlocks");
+    	BlockManipulator.registerManipulator(doorId, BlockManipulator.getManipulator(Block.doorWood.blockID));
+    	
     	GameRegistry.registerBlock(new RoadSlope(roadSlopeId), RoadSlopeItem.class, "roadSlope");
+    	BlockManipulator.registerManipulator(roadSlopeId, new DefaultManipulators.Bits(12, 8, 4, 0, 12));
     	
     	Block.blocksList[95] = null;
     	Block.lightValue[95] = 0;
@@ -115,6 +127,8 @@ public class ModFerrumwoodBlocks {
 		.setCreativeTab(CreativeTabs.tabTransport)
 		.setUnlocalizedName("railPiece");
     	
+    	BlockManipulator.registerManipulator(railBlockId, new RailBlockManipulator());
+    	
     	MultipartBlock rb = (MultipartBlock) new MultipartBlock(miscBlockId, new BlockPart[][] {
     		{
     			new BlockPart(0, 0, 0, 0.5, 0.5, 1, "stonebrick"),
@@ -173,6 +187,8 @@ public class ModFerrumwoodBlocks {
     	GameRegistry.registerBlock(rp, BlockItem.class, "railPieces");
     	GameRegistry.registerBlock(rb, BlockItem.class, "railBlocks");
     	
+    	BlockManipulator.registerManipulator(miscBlockId, new DefaultManipulators.Bits(15, 8, 9, 7, 10));
+    	
     	if (event.getSide().isClient()) {
     		MultipartRender.renderId = RenderingRegistry.getNextAvailableRenderId();
     		MultiTextureRender.renderId = RenderingRegistry.getNextAvailableRenderId();
@@ -205,6 +221,6 @@ public class ModFerrumwoodBlocks {
     }
 
 	public static String getModId() {
-		return "FerrumwoodBlocks";
+		return "ferrumwoodblocks";
 	}
 }
