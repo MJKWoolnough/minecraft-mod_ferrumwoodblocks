@@ -5,22 +5,22 @@ import mw.library.IBlockManipulator;
 
 public class RoadBlockYellowManipulator implements IBlockManipulator {
 
-	private static final int ROAD = 0;
-	private static final int BACKSLASH = 1;
-	private static final int SE = 2;
-	private static final int NW = 3;
-	private static final int SLASH = 4;
-	private static final int SW = 5;
-	private static final int NE = 6;
-	private static final int EAST = 7;
-	private static final int WEST = 8;
-	private static final int FULL = 9;
-	private static final int NORTH = 10;
-	private static final int SOUTH = 11;
-	private static final int NOTNW = 12;
-	private static final int NOTNE = 13;
-	private static final int NOTSW = 14;
-	private static final int NOTSE = 15;
+	private static final byte ROAD = 0;
+	private static final byte BACKSLASH = 1;
+	private static final byte SE = 2;
+	private static final byte NW = 3;
+	private static final byte SLASH = 4;
+	private static final byte SW = 5;
+	private static final byte NE = 6;
+	private static final byte EAST = 7;
+	private static final byte WEST = 8;
+	private static final byte FULL = 9;
+	private static final byte NORTH = 10;
+	private static final byte SOUTH = 11;
+	private static final byte NOTNW = 12;
+	private static final byte NOTNE = 13;
+	private static final byte NOTSW = 14;
+	private static final byte NOTSE = 15;
 	
 	@Override
 	public Blocks rotate90(Blocks block) {

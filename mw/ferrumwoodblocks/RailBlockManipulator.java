@@ -4,23 +4,23 @@ import mw.library.Blocks;
 import mw.library.IBlockManipulator;
 
 public class RailBlockManipulator implements IBlockManipulator {
-	private static final int RAILNSWEST = 0;
-	private static final int RAILNSEAST = 1;
-	private static final int RAILNSSLEEPERNW = 2;
-	private static final int RAILNSSLEEPERNE = 3;
-	private static final int RAILNSSLEEPERSW = 4;
-	private static final int RAILNSSLEEPERSE = 5;
-	private static final int RAILNSSLEEPERN = 6;
-	private static final int RAILNSSLEEPERS = 7;
+	private static final byte RAILNSWEST = 0;
+	private static final byte RAILNSEAST = 1;
+	private static final byte RAILNSSLEEPERNW = 2;
+	private static final byte RAILNSSLEEPERNE = 3;
+	private static final byte RAILNSSLEEPERSW = 4;
+	private static final byte RAILNSSLEEPERSE = 5;
+	private static final byte RAILNSSLEEPERN = 6;
+	private static final byte RAILNSSLEEPERS = 7;
 	
-	private static final int RAILEWSOUTH = 8;
-	private static final int RAILEWNORTH = 9;
-	private static final int RAILEWSLEEPERNW = 10;
-	private static final int RAILEWSLEEPERSW = 11;
-	private static final int RAILEWSLEEPERNE = 12;
-	private static final int RAILEWSLEEPERSE = 13;
-	private static final int RAILEWSLEEPERW = 14;
-	private static final int RAILEWSLEEPERE = 15;
+	private static final byte RAILEWSOUTH = 8;
+	private static final byte RAILEWNORTH = 9;
+	private static final byte RAILEWSLEEPERNW = 10;
+	private static final byte RAILEWSLEEPERSW = 11;
+	private static final byte RAILEWSLEEPERNE = 12;
+	private static final byte RAILEWSLEEPERSE = 13;
+	private static final byte RAILEWSLEEPERW = 14;
+	private static final byte RAILEWSLEEPERE = 15;
 	
 
 	@Override
