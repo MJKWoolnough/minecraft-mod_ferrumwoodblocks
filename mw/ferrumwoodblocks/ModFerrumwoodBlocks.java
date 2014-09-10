@@ -17,7 +17,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid="FerrumwoodBlocks", name="FerrumwoodBlocks", version="1.5.0", dependencies = "required-after:MWLibrary")
+@Mod(modid="ferrumwoodblocks", name="FerrumwoodBlocks", version="1.5.0", dependencies = "required-after:MWLibrary")
 public class ModFerrumwoodBlocks {
 
 	@EventHandler
