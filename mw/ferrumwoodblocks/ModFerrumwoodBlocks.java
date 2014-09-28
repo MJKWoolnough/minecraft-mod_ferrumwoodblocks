@@ -5,6 +5,8 @@ import java.io.File;
 import mw.library.BlockManipulator;
 import mw.library.DefaultManipulators;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDoor;
+import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.Configuration;
@@ -17,7 +19,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid="ferrumwoodblocks", name="FerrumwoodBlocks", version="1.5.0", dependencies = "required-after:MWLibrary")
+@Mod(modid="ferrumwoodblocks", name="FerrumwoodBlocks", version="1.6.0", dependencies = "required-after:MWLibrary")
 public class ModFerrumwoodBlocks {
 
 	@EventHandler
@@ -218,6 +220,11 @@ public class ModFerrumwoodBlocks {
         	DoorBlock.masks = doorMasks;
         	DoorBlock.textures = doorTextures;
     	}
+    	
+    	//Cheat-y Light fixes
+    	
+    	Block.stoneSingleSlab.setLightOpacity(0);
+    	Block.woodSingleSlab.setLightOpacity(0);
     }
 
 	public static String getModId() {

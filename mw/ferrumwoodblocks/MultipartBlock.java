@@ -36,21 +36,21 @@ public class MultipartBlock extends Block implements IMultipart {
 	
 	@Override
 	public boolean isOpaqueCube() {
-        return false;
-    }
+		return false;
+	}
 	
 	@Override
 	public boolean renderAsNormalBlock() {
-        return false;
-    }
+		return false;
+	}
 
     /**
      * The type of render function that is called for this block
      */
 	@Override
-    public int getRenderType() {
-        return MultipartRender.renderId;
-    }
+	public int getRenderType() {
+		return MultipartRender.renderId;
+	}
 
 	@Override
 	public boolean RenderMore(int metadata, int state) {
@@ -73,8 +73,8 @@ public class MultipartBlock extends Block implements IMultipart {
 	
 	@Override
 	public Icon getIcon(int side, int metadata) {
-        return this.icon;
-    }
+		return this.icon;
+	}
 	
 	@Override
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
@@ -175,9 +175,13 @@ public class MultipartBlock extends Block implements IMultipart {
 	
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(int blockId, CreativeTabs cTabs, List list) {
-        for (int i = 0; i < this.bps.length; i++) {
-            list.add(new ItemStack(blockId, 1, i));
-        }
-    }
-
+		for (int i = 0; i < this.bps.length; i++) {
+			list.add(new ItemStack(blockId, 1, i));
+		}
+	}
+	
+	@Override
+	public int damageDropped(int metadata) {
+		return metadata;
+	}
 }

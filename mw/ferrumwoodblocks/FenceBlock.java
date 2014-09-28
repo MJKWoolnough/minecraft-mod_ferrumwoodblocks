@@ -63,5 +63,10 @@ public class FenceBlock extends BlockFence implements MultiTextureRender.Texture
 	public void override(IBlockAccess world, int x, int y, int z) {
 		this.metadataOverride = world.getBlockMetadata(x, y, z);
 	}
+	
+	@Override
+	public int damageDropped(int metadata) {
+        return metadata;
+    }
 
 }
