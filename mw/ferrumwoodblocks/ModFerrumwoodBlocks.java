@@ -24,7 +24,7 @@ public class ModFerrumwoodBlocks {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-    	Configuration Config = new Configuration(new File("config/FerrumwoodBlocksMod.cfg"));
+    	Configuration Config = new Configuration(event.getSuggestedConfigurationFile());
     	Config.load();
     	int roadBlockYellowId = Config.get("BlockIds", "RoadBlockYellow", 4000).getInt();
     	int roadBlockWhiteId = Config.get("BlockIds", "RoadBlockWhite", 4001).getInt();
