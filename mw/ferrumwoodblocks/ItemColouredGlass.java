@@ -1,7 +1,6 @@
 package mw.ferrumwoodblocks;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockColored;
 import net.minecraft.item.ItemCloth;
 import net.minecraft.util.Icon;
 

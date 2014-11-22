@@ -1,6 +1,5 @@
 package mw.ferrumwoodblocks;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
