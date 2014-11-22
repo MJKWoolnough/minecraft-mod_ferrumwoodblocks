@@ -10,9 +10,9 @@ import org.lwjgl.opengl.GL11;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class MultipartRender implements ISimpleBlockRenderingHandler {
-	
-	static int renderId;
-	
+
+	static int	renderId;
+
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks rb) {
 		IMultipart imp = (IMultipart) block;
@@ -23,31 +23,31 @@ public class MultipartRender implements ISimpleBlockRenderingHandler {
 		for (int state = 0; imp.RenderMore(metadata, state); state++) {
 			rb.setRenderBoundsFromBlock(block);
 			GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-            tessellator.startDrawingQuads();
-            tessellator.setNormal(0.0F, -1.0F, 0.0F);
-            rb.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, rb.getBlockIconFromSide(block, 0));
-            tessellator.draw();
-            tessellator.startDrawingQuads();
-            tessellator.setNormal(0.0F, 1.0F, 0.0F);
-            rb.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, rb.getBlockIconFromSide(block, 1));
-            tessellator.draw();
-            tessellator.startDrawingQuads();
-            tessellator.setNormal(0.0F, 0.0F, -1.0F);
-            rb.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, rb.getBlockIconFromSide(block, 2));
-            tessellator.draw();
-            tessellator.startDrawingQuads();
-            tessellator.setNormal(0.0F, 0.0F, 1.0F);
-            rb.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, rb.getBlockIconFromSide(block, 3));
-            tessellator.draw();
-            tessellator.startDrawingQuads();
-            tessellator.setNormal(-1.0F, 0.0F, 0.0F);
-            rb.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, rb.getBlockIconFromSide(block, 4));
-            tessellator.draw();
-            tessellator.startDrawingQuads();
-            tessellator.setNormal(1.0F, 0.0F, 0.0F);
-            rb.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, rb.getBlockIconFromSide(block, 5));
-            tessellator.draw();
-            GL11.glTranslatef(0.5F, 0.5F, 0.5F);
+			tessellator.startDrawingQuads();
+			tessellator.setNormal(0.0F, -1.0F, 0.0F);
+			rb.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, rb.getBlockIconFromSide(block, 0));
+			tessellator.draw();
+			tessellator.startDrawingQuads();
+			tessellator.setNormal(0.0F, 1.0F, 0.0F);
+			rb.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, rb.getBlockIconFromSide(block, 1));
+			tessellator.draw();
+			tessellator.startDrawingQuads();
+			tessellator.setNormal(0.0F, 0.0F, -1.0F);
+			rb.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, rb.getBlockIconFromSide(block, 2));
+			tessellator.draw();
+			tessellator.startDrawingQuads();
+			tessellator.setNormal(0.0F, 0.0F, 1.0F);
+			rb.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, rb.getBlockIconFromSide(block, 3));
+			tessellator.draw();
+			tessellator.startDrawingQuads();
+			tessellator.setNormal(-1.0F, 0.0F, 0.0F);
+			rb.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, rb.getBlockIconFromSide(block, 4));
+			tessellator.draw();
+			tessellator.startDrawingQuads();
+			tessellator.setNormal(1.0F, 0.0F, 0.0F);
+			rb.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, rb.getBlockIconFromSide(block, 5));
+			tessellator.draw();
+			GL11.glTranslatef(0.5F, 0.5F, 0.5F);
 		}
 		imp.resetBox();
 		return;

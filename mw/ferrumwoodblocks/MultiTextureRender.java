@@ -8,12 +8,14 @@ import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 public class MultiTextureRender implements ISimpleBlockRenderingHandler {
 
 	public interface TextureRenderer {
+
 		public void override(int metadata);
+
 		public void override(IBlockAccess world, int x, int y, int z);
 	}
-	
-	static int renderId;
-	
+
+	static int	renderId;
+
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks rb) {
 		TextureRenderer tr = (TextureRenderer) block;

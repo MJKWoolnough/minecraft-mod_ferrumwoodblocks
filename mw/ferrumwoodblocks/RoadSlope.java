@@ -13,40 +13,33 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class RoadSlope extends Block {
-	
-	protected Icon icon;
-	protected Icon icon_wl;
-	protected Icon icon_wr;
-	protected Icon icon_wt;
-	protected Icon icon_wb;
-	
+
+	protected Icon	icon;
+	protected Icon	icon_wl;
+	protected Icon	icon_wr;
+	protected Icon	icon_wt;
+	protected Icon	icon_wb;
+
 	public RoadSlope(int blockId) {
 		super(blockId, Material.rock);
-		this.setLightOpacity(0)
-		.setResistance(10)
-		.setHardness(1.5F)
-		.setStepSound(Block.soundStoneFootstep)
-		.setTextureName(ModFerrumwoodBlocks.getModId() + ":roadslab")
-		.setCreativeTab(CreativeTabs.tabDecorations)
-		.setUnlocalizedName("roadSlope")
-		.setBlockBounds(0f, 0f, 0f, 1f, 0.25f, 1f);
-	} 
-	
+		this.setLightOpacity(0).setResistance(10).setHardness(1.5F).setStepSound(Block.soundStoneFootstep).setTextureName(ModFerrumwoodBlocks.getModId() + ":roadslab").setCreativeTab(CreativeTabs.tabDecorations).setUnlocalizedName("roadSlope").setBlockBounds(0f, 0f, 0f, 1f, 0.25f, 1f);
+	}
+
 	@Override
 	public boolean isOpaqueCube() {
-        return false;
-    }
-	
+		return false;
+	}
+
 	@Override
 	public boolean renderAsNormalBlock() {
-        return false;
-    }
-	
+		return false;
+	}
+
 	@Override
-    public int getRenderType() {
-        return SlopeRender.renderId;
-    }
-	
+	public int getRenderType() {
+		return SlopeRender.renderId;
+	}
+
 	@Override
 	public void registerIcons(IconRegister iconRegister) {
 		this.icon = iconRegister.registerIcon(this.getTextureName());
@@ -55,27 +48,30 @@ public class RoadSlope extends Block {
 		this.icon_wt = iconRegister.registerIcon(this.getTextureName() + "_16");
 		this.icon_wb = iconRegister.registerIcon(this.getTextureName() + "_17");
 	}
-	
+
 	@Override
 	public Icon getIcon(int side, int metadata) {
-        return this.icon;
-    }
-	
+		return this.icon;
+	}
+
 	@Override
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-		this.setBlockBounds(0, 0, 0, 1, (float)((world.getBlockMetadata(x, y, z) & 3) + 1) / 4, 1);
+		this.setBlockBounds(0, 0, 0, 1, (float) ((world.getBlockMetadata(x, y, z) & 3) + 1) / 4, 1);
 	}
-	
+
 	@Override
 	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB axisAlignedBB, List list, Entity entity) {
-		/*this.setBlockBoundsBasedOnState(world, x, y, z);
-		super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);*/
+		/*
+		 * this.setBlockBoundsBasedOnState(world, x, y, z);
+		 * super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB,
+		 * list, entity);
+		 */
 		int metadata = world.getBlockMetadata(x, y, z);
 		double height = metadata & 3;
 		int direction = (metadata >> 2) & 3;
-		
+
 		this.maxY = height / 4;
-		
+
 		switch (direction) {
 		case 0:
 			this.maxZ = 0.5;
@@ -90,11 +86,11 @@ public class RoadSlope extends Block {
 			this.minX = 0.5;
 			break;
 		}
-		
+
 		super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);
-		
+
 		this.maxY = (height + 1) / 4;
-		
+
 		switch (direction) {
 		case 0:
 			this.minZ = 0.5;
@@ -113,9 +109,9 @@ public class RoadSlope extends Block {
 			this.maxX = 0.5;
 			break;
 		}
-		
+
 		super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);
-		
+
 		switch (direction) {
 		case 0:
 			this.minZ = 0;
@@ -131,7 +127,7 @@ public class RoadSlope extends Block {
 			break;
 		}
 	}
-	
+
 	@Override
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
 		this.setBlockBoundsBasedOnState(world, x, y, z);

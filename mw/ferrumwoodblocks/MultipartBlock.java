@@ -18,34 +18,32 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class MultipartBlock extends Block implements IMultipart {
-	
-	private final BlockPart[][] bps;
-	private Icon icon;
-	private boolean overrideState;
-	private int stateOverride;
+
+	private final BlockPart[][]	bps;
+	private Icon			icon;
+	private boolean			overrideState;
+	private int			stateOverride;
 
 	public MultipartBlock(int blockId, BlockPart[][] bp) {
 		super(blockId, Material.iron);
-		this.setLightOpacity(0)
-		.setResistance(10)
-		.setHardness(1.5F);
+		this.setLightOpacity(0).setResistance(10).setHardness(1.5F);
 		this.bps = bp;
 		this.resetBox();
 	}
-	
+
 	@Override
 	public boolean isOpaqueCube() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
 	}
 
-    /**
-     * The type of render function that is called for this block
-     */
+	/**
+	 * The type of render function that is called for this block
+	 */
 	@Override
 	public int getRenderType() {
 		return MultipartRender.renderId;
@@ -60,7 +58,7 @@ public class MultipartBlock extends Block implements IMultipart {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public void registerIcons(IconRegister iconRegister) {
 		for (BlockPart[] bs : this.bps) {
@@ -69,12 +67,12 @@ public class MultipartBlock extends Block implements IMultipart {
 			}
 		}
 	}
-	
+
 	@Override
 	public Icon getIcon(int side, int metadata) {
 		return this.icon;
 	}
-	
+
 	@Override
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
 		if (this.overrideState) {
@@ -84,7 +82,7 @@ public class MultipartBlock extends Block implements IMultipart {
 			this.resetBox();
 		}
 	}
-	
+
 	public void setBlockBoundsBasedOnState(int metadata, int state) {
 		this.minX = this.bps[metadata][state].minX;
 		this.minY = this.bps[metadata][state].minY;
@@ -94,7 +92,7 @@ public class MultipartBlock extends Block implements IMultipart {
 		this.maxZ = this.bps[metadata][state].maxZ;
 		this.icon = this.bps[metadata][state].icon;
 	}
-	
+
 	@Override
 	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB axisAlignedBB, List list, Entity entity) {
 		int metadata = world.getBlockMetadata(x, y, z);
@@ -103,7 +101,7 @@ public class MultipartBlock extends Block implements IMultipart {
 			super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);
 		}
 	}
-	
+
 	public void resetBox() {
 		this.minX = 0;
 		this.minY = 0;
@@ -112,7 +110,7 @@ public class MultipartBlock extends Block implements IMultipart {
 		this.maxY = 1;
 		this.maxZ = 1;
 	}
-	
+
 	public MovingObjectPosition collisionRayTrace(World world, int x, int y, int z, Vec3 startVec, Vec3 endVec) {
 		int metadata = world.getBlockMetadata(x, y, z);
 		MovingObjectPosition toRet = null;
@@ -126,7 +124,7 @@ public class MultipartBlock extends Block implements IMultipart {
 					double tDistance = t.hitVec.distanceTo(startVec);
 					if (tDistance < distance) {
 						toRet = t;
-						distance = tDistance; 
+						distance = tDistance;
 					}
 				} else {
 					toRet = t;
@@ -138,7 +136,7 @@ public class MultipartBlock extends Block implements IMultipart {
 		this.resetBox();
 		return toRet;
 	}
-	
+
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
 		int metadata = world.getBlockMetadata(x, y, z);
 		this.minX = 1;
@@ -171,14 +169,14 @@ public class MultipartBlock extends Block implements IMultipart {
 		this.resetBox();
 		return aabb;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(int blockId, CreativeTabs cTabs, List list) {
 		for (int i = 0; i < this.bps.length; i++) {
 			list.add(new ItemStack(blockId, 1, i));
 		}
 	}
-	
+
 	@Override
 	public int damageDropped(int metadata) {
 		return metadata;

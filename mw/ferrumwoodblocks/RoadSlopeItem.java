@@ -11,12 +11,12 @@ public class RoadSlopeItem extends ItemBlock {
 	public RoadSlopeItem(int itemId) {
 		super(itemId);
 	}
-	
+
 	@Override
 	public int getMetadata(int itemDamage) {
 		return ((itemDamage ^ 1) & 3) << 2;
 	}
-	
+
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
 		if (world.getBlockId(x, y, z) == this.blockID && !player.isSneaking()) {

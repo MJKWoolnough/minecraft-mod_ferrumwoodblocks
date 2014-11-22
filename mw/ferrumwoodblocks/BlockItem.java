@@ -9,11 +9,11 @@ public class BlockItem extends ItemBlock {
 		super(itemId);
 		this.setHasSubtypes(true);
 	}
-	
+
 	public int getMetadata(int metadata) {
-	      return metadata;
+		return metadata;
 	}
-	
+
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack) {
 		return super.getUnlocalizedName() + "_" + String.format("%X", itemstack.getItemDamage());

@@ -4,24 +4,23 @@ import mw.library.Blocks;
 import mw.library.IBlockManipulator;
 
 public class RoadBlockWhiteManipulator implements IBlockManipulator {
-	
-	private static final byte NW = 0;
-	private static final byte NE = 1;
-	private static final byte SW = 2;
-	private static final byte SE = 3;
-	private static final byte WEST = 4;
-	private static final byte EAST = 5;
-	private static final byte NORTH = 6;
-	private static final byte SOUTH = 7;
-	private static final byte BACKSLASH = 8;
-	private static final byte SLASH = 9;
-	private static final byte NNW = 10;
-	private static final byte NNE = 11;
-	private static final byte NSW = 12;
-	private static final byte NSE = 13;
-	private static final byte FULL = 14;
-	private static final byte ROAD = 15;
-	
+
+	private static final byte	NW		= 0;
+	private static final byte	NE		= 1;
+	private static final byte	SW		= 2;
+	private static final byte	SE		= 3;
+	private static final byte	WEST		= 4;
+	private static final byte	EAST		= 5;
+	private static final byte	NORTH		= 6;
+	private static final byte	SOUTH		= 7;
+	private static final byte	BACKSLASH	= 8;
+	private static final byte	SLASH		= 9;
+	private static final byte	NNW		= 10;
+	private static final byte	NNE		= 11;
+	private static final byte	NSW		= 12;
+	private static final byte	NSE		= 13;
+	private static final byte	FULL		= 14;
+	private static final byte	ROAD		= 15;
 
 	@Override
 	public Blocks rotate90(Blocks block) {
