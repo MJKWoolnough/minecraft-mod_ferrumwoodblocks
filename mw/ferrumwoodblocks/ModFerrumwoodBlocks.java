@@ -28,7 +28,8 @@ public class ModFerrumwoodBlocks {
 		int wallBlockId = Config.get("BlockIds", "WallBlock", 4006).getInt();
 		int doorId = Config.get("BlockIds", "DoorBlock", 4007).getInt();
 		int roadSlopeId = Config.get("BlockIds", "SlopeBlock", 4008).getInt();
-		int sunLightId = Config.get("BlockIds", "LightBlock", 4009).getInt();
+		int lightId = Config.get("BlockIds", "LightBlock", 4009).getInt();
+		int darkId = Config.get("BlockIds", "DarkBlock", 4010).getInt();
 
 		Config.save();
 
@@ -51,7 +52,8 @@ public class ModFerrumwoodBlocks {
 		GameRegistry.registerBlock(new RoadSlope(roadSlopeId), RoadSlopeItem.class, "roadSlope");
 		BlockManipulator.registerManipulator(roadSlopeId, new DefaultManipulators.Bits(12, 8, 4, 0, 12));
 
-		GameRegistry.registerBlock(new LightBlock(sunLightId), BlockItem.class, "lightBlock");
+		GameRegistry.registerBlock(new LightBlock(lightId), BlockItem.class, "lightBlock");
+		GameRegistry.registerBlock(new DarkBlock(darkId), BlockItem.class, "darkBlock");
 
 		Block.blocksList[95] = null;
 		Block.lightValue[95] = 0;

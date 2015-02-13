@@ -211,3 +211,4 @@ tile.thinGlass.magenta.name=Magenta Stained Glass Pane
 tile.thinGlass.orange.name=Orange Stained Glass Pane
 tile.thinGlass.white.name=White Stained Glass Pane
 tile.lightBlock_0.name=Light Block
+tile.darkBlock_0.name=Dark Block
