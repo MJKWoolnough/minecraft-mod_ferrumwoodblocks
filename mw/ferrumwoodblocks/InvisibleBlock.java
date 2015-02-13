@@ -9,6 +9,7 @@ import net.minecraft.world.World;
 public class InvisibleBlock extends Block {
 	protected InvisibleBlock(int blockId) {
 		super(blockId, Material.air);
+		this.setBlockBounds(0, 0, 0, 0, 0, 0);
 	}
 
 	@Override
