@@ -4,46 +4,17 @@ import java.util.List;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.world.World;
 
 
-public class DarkBlock extends Block {
+public class DarkBlock extends InvisibleBlock {
 	public DarkBlock(int blockId) {
-		super(blockId, Material.air);
+		super(blockId);
 		this.setUnlocalizedName("darkBlock")
 		.setCreativeTab(CreativeTabs.tabDecorations)
 		.setLightValue(0)
 		.setLightOpacity(15);
-	}
-	
-	@Override
-	public boolean isOpaqueCube() {
-		return false;
-	}
-	
-	@Override
-	public int getRenderType() {
-		return -1;
-	}
-	
-	@Override
-	public int damageDropped(int metadata) {
-		return metadata;
-	}
-	
-	@Override
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
-	
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-	        return null;
 	}
 	
 	@SideOnly(Side.CLIENT)
